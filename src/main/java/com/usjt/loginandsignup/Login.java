@@ -41,6 +41,9 @@ public class Login extends javax.swing.JFrame {
         Right = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         Left = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -48,8 +51,6 @@ public class Login extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jPasswordField1 = new javax.swing.JPasswordField();
         jButton1 = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
-        SignUpButton = new javax.swing.JButton();
         MinimizeButton = new javax.swing.JButton();
         MaximizeButton = new javax.swing.JButton();
         CloseButton = new javax.swing.JButton();
@@ -65,33 +66,66 @@ public class Login extends javax.swing.JFrame {
         Right.setBackground(new java.awt.Color(51, 0, 51));
         Right.setPreferredSize(new java.awt.Dimension(400, 500));
 
-        jLabel5.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 48)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Monocraft", 1, 24)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("F.E.E.D");
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText("Bem Vindo de Volta");
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/usjt/loginandsignup/resources/jollyroger.png"))); // NOI18N
+
+        jLabel6.setFont(new java.awt.Font("Monocraft", 0, 12)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setText("Lorem ipsum dolor sit amet, consectetur");
+        jLabel6.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+
+        jLabel8.setFont(new java.awt.Font("Monocraft", 0, 12)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel8.setText("elit, sed do eiusmod tempor");
+        jLabel8.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+
+        jLabel4.setForeground(new java.awt.Color(153, 153, 255));
+        jLabel4.setText("Ja tenho uma conta!");
+        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Clique(evt);
+            }
+        });
 
         javax.swing.GroupLayout RightLayout = new javax.swing.GroupLayout(Right);
         Right.setLayout(RightLayout);
         RightLayout.setHorizontalGroup(
             RightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(RightLayout.createSequentialGroup()
-                .addGap(98, 98, 98)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RightLayout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(RightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5)
-                    .addGroup(RightLayout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addComponent(jLabel7)))
-                .addContainerGap(107, Short.MAX_VALUE))
+                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 405, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 405, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RightLayout.createSequentialGroup()
+                        .addComponent(jLabel7)
+                        .addGap(127, 127, 127)))
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RightLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel4)
+                .addGap(153, 153, 153))
         );
         RightLayout.setVerticalGroup(
             RightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(RightLayout.createSequentialGroup()
-                .addGap(117, 117, 117)
+                .addGap(108, 108, 108)
                 .addComponent(jLabel7)
-                .addGap(44, 44, 44)
+                .addGap(32, 32, 32)
                 .addComponent(jLabel5)
-                .addContainerGap(132, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel8)
+                .addGap(52, 52, 52)
+                .addComponent(jLabel4)
+                .addContainerGap(69, Short.MAX_VALUE))
         );
 
         jPanel1.add(Right);
@@ -119,13 +153,6 @@ public class Login extends javax.swing.JFrame {
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Login");
 
-        jLabel4.setText("Eu não tenho uma conta.");
-
-        SignUpButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        SignUpButton.setForeground(new java.awt.Color(255, 51, 51));
-        SignUpButton.setText("Registrar");
-        SignUpButton.addActionListener(this::SignUpButtonActionPerformed);
-
         MinimizeButton.setBackground(new java.awt.Color(51, 255, 51));
         MinimizeButton.setText(".");
         MinimizeButton.addActionListener(this::MinimizeButtonActionPerformed);
@@ -152,11 +179,7 @@ public class Login extends javax.swing.JFrame {
                             .addGroup(LeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(jPasswordField1, javax.swing.GroupLayout.DEFAULT_SIZE, 344, Short.MAX_VALUE)
                                 .addComponent(jTextField1))
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(LeftLayout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addGap(18, 18, 18)
-                                .addComponent(SignUpButton, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(LeftLayout.createSequentialGroup()
                         .addGap(138, 138, 138)
                         .addComponent(jLabel1)))
@@ -188,11 +211,7 @@ public class Login extends javax.swing.JFrame {
                 .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(LeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(SignUpButton))
-                .addContainerGap(98, Short.MAX_VALUE))
+                .addContainerGap(143, Short.MAX_VALUE))
         );
 
         jPanel1.add(Left);
@@ -218,7 +237,19 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
 
-    private void SignUpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SignUpButtonActionPerformed
+    private void MinimizeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MinimizeButtonActionPerformed
+        this.setState(this.ICONIFIED);
+    }//GEN-LAST:event_MinimizeButtonActionPerformed
+
+    private void MaximizeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MaximizeButtonActionPerformed
+        
+    }//GEN-LAST:event_MaximizeButtonActionPerformed
+
+    private void CloseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CloseButtonActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_CloseButtonActionPerformed
+
+    private void Clique(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Clique
         SignUp SignUpFrame = new SignUp();
         SignUpFrame.dispose();
         SignUpFrame.setUndecorated(true);
@@ -227,23 +258,7 @@ public class Login extends javax.swing.JFrame {
         SignUpFrame.setResizable(false);
         SignUpFrame.pack();
         this.dispose();
-    }//GEN-LAST:event_SignUpButtonActionPerformed
-
-    private void MinimizeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MinimizeButtonActionPerformed
-        this.setState(this.ICONIFIED);
-    }//GEN-LAST:event_MinimizeButtonActionPerformed
-
-    private void MaximizeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MaximizeButtonActionPerformed
-        if (this.getExtendedState() == java.awt.Frame.MAXIMIZED_BOTH) {
-            this.setExtendedState(java.awt.Frame.NORMAL); // restaura tamanho normal
-        } else {
-            this.setExtendedState(java.awt.Frame.MAXIMIZED_BOTH); // maximiza
-        }
-    }//GEN-LAST:event_MaximizeButtonActionPerformed
-
-    private void CloseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CloseButtonActionPerformed
-        this.dispose();
-    }//GEN-LAST:event_CloseButtonActionPerformed
+    }//GEN-LAST:event_Clique
 
     /**
      * @param args the command line arguments
@@ -255,14 +270,15 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JButton MaximizeButton;
     private javax.swing.JButton MinimizeButton;
     private javax.swing.JPanel Right;
-    private javax.swing.JButton SignUpButton;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTextField jTextField1;

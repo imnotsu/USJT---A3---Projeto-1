@@ -9,6 +9,23 @@ public class Login extends javax.swing.JFrame {
      */
     public Login() {
         initComponents();
+        java.awt.Point[] origin = {null};
+        jPanel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent e) {
+                origin[0] = e.getPoint();
+            }
+        });
+        jPanel1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent e) {
+                if (origin[0] != null) {
+                    java.awt.Point p = getLocation();
+                    setLocation(
+                        p.x + e.getX() - origin[0].x,
+                        p.y + e.getY() - origin[0].y
+                    );
+                }
+            }
+        });
     }
 
     /**
@@ -33,17 +50,19 @@ public class Login extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         SignUpButton = new javax.swing.JButton();
+        MinimizeButton = new javax.swing.JButton();
+        MaximizeButton = new javax.swing.JButton();
+        CloseButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Login");
         setBackground(new java.awt.Color(102, 102, 102));
-        setPreferredSize(new java.awt.Dimension(800, 500));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setPreferredSize(new java.awt.Dimension(800, 500));
         jPanel1.setLayout(null);
 
-        Right.setBackground(new java.awt.Color(0, 102, 102));
+        Right.setBackground(new java.awt.Color(51, 0, 51));
         Right.setPreferredSize(new java.awt.Dimension(400, 500));
 
         jLabel5.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 48)); // NOI18N
@@ -107,6 +126,18 @@ public class Login extends javax.swing.JFrame {
         SignUpButton.setText("Registrar");
         SignUpButton.addActionListener(this::SignUpButtonActionPerformed);
 
+        MinimizeButton.setBackground(new java.awt.Color(51, 255, 51));
+        MinimizeButton.setText(".");
+        MinimizeButton.addActionListener(this::MinimizeButtonActionPerformed);
+
+        MaximizeButton.setBackground(new java.awt.Color(255, 255, 102));
+        MaximizeButton.setText("-");
+        MaximizeButton.addActionListener(this::MaximizeButtonActionPerformed);
+
+        CloseButton.setBackground(new java.awt.Color(255, 51, 51));
+        CloseButton.setText("X");
+        CloseButton.addActionListener(this::CloseButtonActionPerformed);
+
         javax.swing.GroupLayout LeftLayout = new javax.swing.GroupLayout(Left);
         Left.setLayout(LeftLayout);
         LeftLayout.setHorizontalGroup(
@@ -130,11 +161,22 @@ public class Login extends javax.swing.JFrame {
                         .addGap(138, 138, 138)
                         .addComponent(jLabel1)))
                 .addContainerGap(23, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LeftLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(MinimizeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(MaximizeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(CloseButton, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         LeftLayout.setVerticalGroup(
             LeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(LeftLayout.createSequentialGroup()
-                .addGap(60, 60, 60)
+                .addGroup(LeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(CloseButton)
+                    .addComponent(MaximizeButton)
+                    .addComponent(MinimizeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(37, 37, 37)
                 .addComponent(jLabel1)
                 .addGap(47, 47, 47)
                 .addComponent(jLabel2)
@@ -178,18 +220,40 @@ public class Login extends javax.swing.JFrame {
 
     private void SignUpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SignUpButtonActionPerformed
         SignUp SignUpFrame = new SignUp();
-        SignUpFrame.pack();
+        SignUpFrame.dispose();
+        SignUpFrame.setUndecorated(true);
         SignUpFrame.setVisible(true);
         SignUpFrame.setLocationRelativeTo(null); // centro
+        SignUpFrame.setResizable(false);
+        SignUpFrame.pack();
         this.dispose();
     }//GEN-LAST:event_SignUpButtonActionPerformed
+
+    private void MinimizeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MinimizeButtonActionPerformed
+        this.setState(this.ICONIFIED);
+    }//GEN-LAST:event_MinimizeButtonActionPerformed
+
+    private void MaximizeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MaximizeButtonActionPerformed
+        if (this.getExtendedState() == java.awt.Frame.MAXIMIZED_BOTH) {
+            this.setExtendedState(java.awt.Frame.NORMAL); // restaura tamanho normal
+        } else {
+            this.setExtendedState(java.awt.Frame.MAXIMIZED_BOTH); // maximiza
+        }
+    }//GEN-LAST:event_MaximizeButtonActionPerformed
+
+    private void CloseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CloseButtonActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_CloseButtonActionPerformed
 
     /**
      * @param args the command line arguments
      */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton CloseButton;
     private javax.swing.JPanel Left;
+    private javax.swing.JButton MaximizeButton;
+    private javax.swing.JButton MinimizeButton;
     private javax.swing.JPanel Right;
     private javax.swing.JButton SignUpButton;
     private javax.swing.JButton jButton1;

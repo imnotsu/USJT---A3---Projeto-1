@@ -86,7 +86,7 @@ public class Login extends javax.swing.JFrame {
         jLabel8.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
         jLabel4.setForeground(new java.awt.Color(153, 153, 255));
-        jLabel4.setText("Ja tenho uma conta!");
+        jLabel4.setText("Criar uma conta");
         jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Clique(evt);

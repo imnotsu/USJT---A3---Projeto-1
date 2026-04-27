@@ -158,7 +158,6 @@ Projeto desenvolvido por alunos da **USJT (Universidade São Judas Tadeu)** como
 | Matheus Souza Gomes de Oliveira | [@INSIRAM SEUS GITHUBS](https://github.com/imnotsu) |
 | Leonardo Arboleya | [@INSIRAM SEUS GITHUBS](https://github.com/imnotsu) |
 | Fernando | [@INSIRAM SEUS GITHUBS](https://github.com/imnotsu) |
-| Leonardo Gouveia | [@INSIRAM SEUS GITHUBS](https://github.com/imnotsu) |
 
 > *R.A evitados passar pelo github, caso seja o professor e precise, entre em contato com Matheus*
 
